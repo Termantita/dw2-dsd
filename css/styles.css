@@ -1,15 +1,15 @@
 :root {
-    --text-light: #130a15;
-    --bg-light: #f3eaf5;
-    --primary-light: #9ec495;
-    --secondary-light: #f5eef7;
-    --accent-light: #567f8f;
+    --text-light: rgb(19, 10, 21);
+    --bg-light: rgb(243, 234, 245);
+    --primary-light: rgb(119, 184, 101);
+    --secondary-light: rgb(245, 238, 247);
+    --accent-light: rgb(86, 127, 143);
 
-    --text-dark: #f3eaf5;
-    --bg-dark: #130a15
+    --text-dark: var(--background-light);
+    --bg-dark: var(--text-light);
     --primary-dark: var(--primary-light);
-    --secondary-dark: #0f0811;
-    --accent-dark: #7099a9;
+    --secondary-dark: rgb(15, 8, 17);
+    --accent-dark: rgb(112, 153, 169);
 }
 
 * {
@@ -25,6 +25,7 @@ body {
 /*----HEADER----*/
 
 header {
+    background-color: var(--primary-light);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,7 +39,7 @@ header {
 
 .itemMenu {
     padding: 30px;
-    color: black;
+    color: white;
 }
 
 /*---MAIN----*/
@@ -53,10 +54,6 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.portada span {
-    color: green;
 }
 
 /*----PRODUCTOS----*/
@@ -75,7 +72,6 @@ header {
     box-shadow: 10px 13px 5px -4px rgba(0,0,0,0.23);
     -webkit-box-shadow: 10px 13px 5px -4px rgba(0,0,0,0.23);
     -moz-box-shadow: 10px 13px 5px -4px rgba(0,0,0,0.23);
-    background-color: var(--primary-light);
 }
 
 .product img {
@@ -85,53 +81,14 @@ header {
     margin-top: 0;
 }
 
-.card .card-body {
-    padding: 12px;
-}
-
-/* .container .col {
-    padding: 0px;
-    width: 30px;
-    height: 30px;
-    flex: 0 0 0%;
-} */
-
-.card .container {
-    display: flex;
-    flex-direction: row;
-    padding: 0px;
-}
-
-.card .container .div-quantity {
-    display: flex;
-    flex-direction: row;
-    margin-left: 50px;
-}
-
-.container p {
-    margin: 0px;
-    width: 35px;
-    height: 35px;
-    font-size: 20px;
-    text-align: center;
-    padding-top: 2px;
-}
-
-.quantity-sum, .quantity-minus {
-    width: 35px;
-    height: 35px;
-    border: none;
-    padding: 0px;
-    background-color: rgba(128, 128, 128, 0.247);
-}
-
 /*----CARRITO----*/
 .cart {
     border: 2px solid black;
 }
 
-.cart h2 {
+.cart h2{
     text-align: center;
+    background-color:  rgb(168, 168, 168);
 }
 
 .cart ul {
@@ -143,30 +100,28 @@ header {
     margin-bottom: 5px;
 }
 
-.cart div {
+.cart div{
     text-align: center;
 }
 
-.cart button {
+.cart button{
     padding: 5px;
 }
 
 .add-to-cart-btn {
-    background-color: var(--primary-light);
-    border-radius: 10px;
-    border: 0px;
-    color: var(--text-light);
-    padding: 5px 5px;
+    background-color: white;
+    /* border-radius: 10px; */
+    color: grey;
+    border: 2px solid grey;
+    padding: 5px 10px;
     cursor: pointer;
     text-align: center;
-    height: 35px;
 }
 
-.add-to-cart-btn:hover {
-    /* transform: scale(1.1);
-    transition-duration: .5s; */
+.add-to-cart-btn:hover{
+    background-color: grey;
     color: white;
-    box-shadow: 5px 8px 5px -4px rgba(0,0,0,0.23);
+    
 }
 
 .total {
@@ -174,7 +129,7 @@ header {
     justify-content: center;
     width: 100%;
     padding: 20px;
-    background-color: var(--primary-light);
+    background-color: rgb(168, 168, 168);
     color: white;
     border: 2px solid black;
     margin-bottom: 50px;
@@ -182,10 +137,10 @@ header {
 
 /*--FOOTER--*/
 
-footer {
+footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--primary-light);
+    background-color: grey;
     padding: 20px;
 }
