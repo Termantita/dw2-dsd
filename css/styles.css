@@ -1,15 +1,17 @@
-:root {
-    --text-light: #130a15;
-    --bg-light: #f3eaf5;
-    --primary-light: #9ec495;
-    --secondary-light: #f5eef7;
-    --accent-light: #567f8f;
+[data-theme="light"] {
+    --text-color: #130a15;
+    --bg-color: #f3eaf5;
+    --primary-color: #77DD77;
+    --secondary-color: #f5eef7;
+    --accent-color: #567f8f;
+}
 
-    --text-dark: #f3eaf5;
-    --bg-dark: #130a15
-    --primary-dark: var(--primary-light);
-    --secondary-dark: #0f0811;
-    --accent-dark: #7099a9;
+[data-theme="dark"] {
+    --text-color: #f3eaf5;
+    --bg-color: #130a15;
+    --primary-color: var(--primary-color);
+    --secondary-color: #0f0811;
+    --accent-color: #7099a9;
 }
 
 * {
@@ -19,7 +21,7 @@
 }
 
 body {
-    background-color: var(--bg-light);
+    background-color: var(--bg-color);
 }
 
 /*----HEADER----*/
@@ -28,7 +30,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 0px 15px;
+    background: linear-gradient(90deg, rgba(70,172,106,1) 0%, rgba(213,255,221,1) 100%);
 }
 
 .menu {
@@ -37,11 +40,35 @@ header {
 }
 
 .itemMenu {
-    padding: 30px;
-    color: black;
+    margin: 30px;
+    color: var(--text-color);
+    background-color: #fafafa;
+    padding: 5px 20px;
+    border-radius: 25px;
+    transition: all .3s ease-in-out;
+}
+
+.itemMenu a {
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.itemMenu:hover {
+    transform: scale(1.15);
+    box-shadow: 1px 6px 28px 0px rgba(0,0,0,0.75);
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
 }
 
 /*---MAIN----*/
+
+li a {
+    text-decoration: none;
+    color: var(--text-color);
+}
 
 .portada {
     display: flex;
@@ -49,10 +76,16 @@ header {
     justify-content: center;
     align-items: center;
     height: 300px;
-    background-image: url(https://dummyimage.com/1000x400/c5c6c7/fff);
+    /* background-image: url(https://dummyimage.com/1000x400/c5c6c7/fff); */
+    background-image: url(https://www.esturirafi.com/wp-content/uploads/blogger/bauyhumanaque-hacer-con-ropa-usada-esturirafi.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.portada div {
+    text-align: center;
+    width: 100%;
 }
 
 .portada span {
@@ -68,14 +101,15 @@ header {
 
 .product {
     height: 250px;
+    width: 18rem;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid grey;
+    border: 1px solid ;
     margin: 10px;
     box-shadow: 10px 13px 5px -4px rgba(0,0,0,0.23);
     -webkit-box-shadow: 10px 13px 5px -4px rgba(0,0,0,0.23);
     -moz-box-shadow: 10px 13px 5px -4px rgba(0,0,0,0.23);
-    background-color: var(--primary-light);
+    background-color: var(--primary-color);
 }
 
 .product img {
@@ -127,11 +161,12 @@ header {
 
 /*----CARRITO----*/
 .cart {
-    border: 2px solid black;
+    border-top: 2px solid var(--text-color);
 }
 
 .cart h2 {
     text-align: center;
+    margin-top: 10px;
 }
 
 .cart ul {
@@ -141,6 +176,7 @@ header {
 
 .cart li {
     margin-bottom: 5px;
+    background-color: #9ec49569;
 }
 
 .cart div {
@@ -151,11 +187,24 @@ header {
     padding: 5px;
 }
 
+.cart article {
+    padding-left: 20px;
+    text-align: left;
+}
+
+.cart article p {
+    margin-bottom: 0px;
+}
+
+.cart article h2 {
+    text-align: left;
+}
+
 .add-to-cart-btn {
-    background-color: var(--primary-light);
+    background-color: var(--primary-color);
     border-radius: 10px;
     border: 0px;
-    color: var(--text-light);
+    color: var(--text-color);
     padding: 5px 5px;
     cursor: pointer;
     text-align: center;
@@ -174,8 +223,9 @@ header {
     justify-content: center;
     width: 100%;
     padding: 20px;
-    background-color: var(--primary-light);
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-weight: 500;
     border: 2px solid black;
     margin-bottom: 50px;
 }
@@ -186,6 +236,6 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--primary-light);
+    background-color: var(--primary-color);
     padding: 20px;
 }

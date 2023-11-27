@@ -61,16 +61,27 @@ const forma1 = () => {
   );
 
   for (let product in products) {
-    console.log(`Producto ${parseInt(product) + 1}`);
+    let i = parseInt(product) + 1;
+    console.log(`Producto ${i}`);
     console.table(products[product]);
 
-    alert(`Producto ${parseInt(product) + 1}:
+    alert(`Producto ${i}:
       Nombre: ${products[product].name}
       Precio: ${products[product].price}`);
   }
 };
 
 const forma2 = () => {
+
+  /*
+  Creo un objeto literal usando la "plantilla" del constructor
+  Product: {
+    id: id,
+    name: name,
+    price: price,
+    quantity: quantity
+  }
+  */
   class Product {
     constructor(id, name, price, quantity) {
       this._id = id;
@@ -80,14 +91,15 @@ const forma2 = () => {
     }
   }
 
-  let products = new Array();
+  let products = new Array(); // Otra manera de crear un Array, como usar "[]" pero invocando un objeto
 
+  // Se encarga de insertar el objeto en el array, guardando un dato de tipo Product, el cual es mi objeto. Se puede no mandar como argumento "price" o "quantity" y se toma sus valores por defecto (1)
   const pushObj = (name, price = 1, quantity = 1) => {
     const getRandomInt = (max) => {
-      return Math.floor(Math.random() * max);
+      return Math.floor(Math.random() * max); // Obtiene un numero random entero (no decimal)
     }
 
-    products.push(new Product(getRandomInt(99999999999), name, price, quantity));
+    products.push(new Product(getRandomInt(99999999999), name, price, quantity)); // En este caso, el numero random va de 0 a 99999999999, como seria un UUID, o un ID unico basicamente
   }
 
   pushObj("Telas viejas", 650, 5);
