@@ -12,7 +12,7 @@ const totalPrice = document.querySelector(".total-price");
 /**
  * 
  * @param {Element} btn 
- */
+*/
 const addProductToCart = (btn) => {
   const item = document.createElement("li");
   
@@ -25,24 +25,33 @@ const addProductToCart = (btn) => {
     alert("Debe seleccionar por lo menos una unidad");
     return;
   }
-
+  
   item.innerHTML = `
   <hr>
   <article>
-    <h2>${name}</h2>
-    <p>Precio de producto: $${price}</p>
-    <p>Precio total: $${price * qty}</p>
-    <p>Cantidad: ${qty}</p>
+  <h2>${name}</h2>
+  <p>Precio de producto: $${price}</p>
+  <p>Precio total: $${price * qty}</p>
+  <p>Cantidad: ${qty}</p>
   </article>
   <hr>`;
-
-  totalPrice.innerHTML = parseInt(totalPrice.innerHTML) + price * qty;
+  
+  
   item.dataset.aos = "fade-right";
-
+  changeTotalPrice(price * qty);
+  
   body.querySelector(".quantity").textContent = 1;
-
+  
   cart.append(item);
 };
+
+const changeTotalPrice = (newPrice) => {
+  totalPrice.innerHTML = parseInt(totalPrice.innerHTML) + newPrice;
+}
+
+const resetTotalPrice = () => {
+  totalPrice.innerHTML = 0;
+}
 
 qtyMinusBtn.forEach((btn) =>
   btn.addEventListener("click", () => {
@@ -72,4 +81,8 @@ qtySumBtn.forEach((btn) =>
 
 addToCartBtn.forEach(btn => btn.addEventListener("click", () => addProductToCart(btn)));
 
-clearCartBtn.addEventListener("click", () => cart.innerHTML = "");
+
+clearCartBtn.addEventListener("click", () => {
+  cart.innerHTML = "";
+  resetTotalPrice();
+});
